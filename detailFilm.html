@@ -9,87 +9,228 @@
     <title>SineFlick</title>
     <link rel="stylesheet" href="style.css" />
     <style>
-      :root {
-        --primaryDark: #161722;
-        --textDark: #56555d;
-        --primaryLight: #fffefe;
-      }
+      	:root {
+        	--primaryDark: #161722;
+        	--textDark: #56555d;
+        	--primaryLight: #fffefe;
+      	}
 
-      .text-primaryLight {
-        color: var(--primaryLight);
-      }
+      	.text-primaryLight {
+        	color: var(--primaryLight);
+      	}
 
-	  .header-container {
-        display: flex;
-        align-items: center;
-      }
+	  	.header-container {
+        	display: flex;
+        	align-items: center;
+      	}
 
-      .header-logo {
-        width: 32px;
-        height: 32px;
-        margin-right: 10px;
-      }
-	  main {
-        background-color: #161722;
-        color: #f2f2f2;
-      }
+      	.header-logo {
+        	width: 40px;
+        	height: 40px;
+        	margin-right: 10px;
+      	}
+	  	main {
+        	background-color: #161722;
+        	color: #f2f2f2;
+      	}
 
-	  .konten {
-    	display: flex;
-   	 	flex-direction: row;
-   	 	justify-content: space-between;
-    	align-items: flex-start;
-    	width: 100%;
-	  }
+	  	.main-container {
+			background-color: #0f0d18;
+			padding: 20px;
+      	}
 
-	  .main-container {
-        background-color: #0f0d18;
-        border-radius: 15px;
-        padding: 20px;
-        margin: 20px;
-      }
+	  	.film-title {
+			font-family: 'Arial', sans-serif;;
+			font-size: 48px; /* Ukuran font 48px */
+			font-weight: bold; /* Teks tebal */
+			text-align: left; /* Rata kiri*/
+			margin-left: 40px;
+      	}
 
-	  .film-container {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        background-color: #0f0d18;
-        border-radius: 15px;
-        padding: 20px;
-        margin: 20px;
-      }
+		.film-year {
+			font-family: 'Arial', sans-serif;;
+			font-size: 24px; /* Ukuran font 48px */
+			font-weight: bold; /* Teks tebal */
+			text-align: left; /* Rata tengah */
+			margin-right: 10px;
+      	}
 
-	  .poster-container, .preview-trailer {
-        flex: 1; /* Tambahkan ini */
-        margin: 0 10px; /* Tambahkan margin untuk memberikan ruang antara poster dan trailer */
-      }
-	
-	  .genre-container {
- 		display: flex;
- 		flex-wrap: wrap;
- 		gap: 10px; /* Menambahkan gap antara bubble */	
-	  }
+		.rating-container {
+			display: flex;
+			align-items: center;
+			margin-left: 40px;
+		}
 
-	  .genre-bubble {
- 		padding: 5px 10px;
- 		border-radius: 20px; /* Membuat sudut bubble menjadi bulat */
- 		background-color: #56555d; /* Mengatur warna latar belakang bubble */
- 		color: #fffefe; /* Mengatur warna teks bubble */
- 		margin-left: 10px; /* Menambahkan margin kiri untuk menyesuaikan dengan poster */
-	  }
+		.stars {
+			display: flex;
+		}
+		
+		.star-full, .star-almost, .star-half, .star-quarter {
+			width: 20px;
+			height: 20px;
+		}
 
-	  .main article {
- 		font-family: 'Arial', sans-serif; /* Mengubah tipe font */
- 		font-size: 18px; /* Mengubah ukuran font */
- 		line-height: 1.6; /* Mengubah tinggi baris */
- 		color: #f2f2f2; /* Mengubah warna font */
- 		text-align: justify; /* Membuat teks menjadi rata kiri-kanan */
- 		margin-top: 20px; /* Menambahkan margin atas */
-		text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Menambahkan bayangan pada teks */
- 		font-weight: bold; /* Membuat teks lebih tebal */
-	  }	
+		.rating {
+			margin-left: 10px;
+			font-size: 18px;
+			color: #f2f2f2;
+		}
 
+	  	.film-container {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			background-color: #0f0d18;
+			border-radius: 15px;
+			padding: 20px;
+			margin-left: 20px;
+			width: 96%;
+			height: 100%;
+      	}
 
+	  	.poster img {
+			max-width: 100%;
+			max-height: 100%;
+		}
+
+	  	.trailer .iframe-wrapper {
+			position: relative;
+			height: 0;
+			padding-top: 56.25%; /* 4:3 = 100% / 3 = 33.33%, 8:4 = 100% / 4 = 25% */
+			overflow: hidden;
+		}
+
+	  	.trailer .iframe-wrapper iframe {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+		}
+
+		.poster {
+			flex: 3; /* 3/11 dari lebar film-container */
+			margin: 0 2px; /* Tambahkan margin untuk memberikan ruang antara poster dan trailer */
+		}
+
+		.trailer {
+			flex: 8; /* 8/11 dari lebar film-container */
+			margin: 0 2px; /* Tambahkan margin untuk memberikan ruang antara poster dan trailer */
+		}
+
+	  	.genre-container {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 10px; /* Menambahkan gap antara bubble */
+			margin-left: 40px;
+			margin-bottom: 10px;	
+		}
+
+	  	.deskripsi {
+			margin-left: 40px;
+			width: 60%; /* Mengatur lebar deskripsi menjadi 60% dari lebar container */
+		}
+
+	  	.genre-bubble {
+			padding: 5px 10px;
+			border-radius: 20px; /* Membuat sudut bubble menjadi bulat */
+			background-color: #f58c53; /* Mengatur warna latar belakang bubble */
+			color: #fffefe; /* Mengatur warna teks bubble */
+			margin-left: 10px; /* Menambahkan margin kiri untuk menyesuaikan dengan poster */
+		}
+
+		.deskripsi p {
+			border-bottom: 1px solid #56555d; /* Warna garis */
+			padding-bottom: 10px; /* Memberikan sedikit ruang di bawah teks */
+			margin-bottom: 10px; /* Memberikan sedikit ruang di bawah paragraf */
+		}
+
+	  	/*.deskripsi p::after {
+			content: "";
+			display: block;
+			height: 1px; /* Tinggi garis */
+		/*	background-color: #56555d; /* Warna garis */
+		/*	margin-top: 10px; /* Margin atas untuk memberikan ruang antara paragraf dan garis */
+		/*} */
+
+	  	.deskripsi p:last-child::after {
+			display: none; /* Menghilangkan garis setelah paragraf terakhir */
+		}
+
+		.additional-info-container {
+			background-color: #0f0d18;
+			color: #f2f2f2;
+			padding: 20px;
+			margin: 20px;
+			border-radius: 15px;
+		}
+
+		.section-title {
+			font-family: 'Arial', sans-serif;
+			font-size: 32px;
+			font-weight: bold;
+			text-align: center;
+			margin-bottom: 20px;
+		}
+
+		.info-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+			gap: 20px;
+		}
+
+		.info-item {
+			background-color: #161722;
+			padding: 20px;
+			border-radius: 10px;
+		}
+
+		.info-item h3 {
+			font-family: 'Arial', sans-serif;
+			font-size: 24px;
+			font-weight: bold;
+			margin-bottom: 10px;
+		}
+
+		.info-item ul, .info-item p {
+			font-family: 'Arial', sans-serif;
+			font-size: 16px;
+			line-height: 1.6;
+			color: #f2f2f2;
+		}
+
+		.trending-slider-container {
+			background-color: #56555d;
+			border-radius: 15px;
+      	}
+
+		.slider-container {
+			width: 100%;
+			height: 10%; /* Tinggi slider */
+			padding-left: 40px; /* Menambahkan margin 40px di sisi kiri */
+    		padding-right: 40px; /* Menambahkan margin 40px di sisi kanan */
+			overflow-x: auto; /* Ijinkan scroll horizontal */
+			white-space: nowrap; /* Jaga semua slide dalam satu baris */
+			position: relative;
+		}
+
+		.slide {
+			display: inline-block;
+			width: 25%; /* Setiap slide akan mengambil 25% dari lebar slider */
+			height: auto;
+			padding-bottom: 56.25%; /* 9/16 = 0.5625, untuk mencapai aspek rasio 16:9 */
+			position: relative;
+			margin: 3px; /* Menambahkan margin 3px untuk setiap gambar */
+		}
+
+		.slide img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover; /* Untuk memastikan gambar menyesuaikan dengan aspek rasio tanpa perubahan ukuran */
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
     </style>
   </head>
   
@@ -103,7 +244,7 @@
 					<div class="text-white font-bold text-lg">SineFlick</div>
 				</div>
 				<div class="flex space-x-8">
-				  <a href="#" class="text-primaryLight">Movies</a>
+				  <a href="index.html" class="text-primaryLight">Movies</a>
 				  <a href="#" class="text-primaryLight">Series</a>
 				  <a href="#" class="text-primaryLight">TV Shows</a>
 				  <a href="#" class="text-primaryLight">Kids</a>
@@ -123,35 +264,107 @@
     </header>
 
     <main class="main-container">
+		<h1 class="film-title">John Wick: Chapter 4</h1>
+		<div class="rating-container">
+			<h2 class="film-year">2023 | </h2>
+			<div class="stars">
+				<img src="Assets/Images/star-full.png" alt="star-full" class="star-full">
+				<img src="Assets/Images/star-full.png" alt="star-full" class="star-full">
+				<img src="Assets/Images/star-full.png" alt="star-full" class="star-full">
+				<img src="Assets/Images/star-full.png" alt="star-full" class="star-full">
+				<img src="Assets/Images/star-almost.png" alt="star-half" class="star-almost">
+			</div>
+			<span class="rating">4.9</span>
+		</div>
 		<section class="film-container">
-			<div class="poster-container">
+			<div class="poster">
 			  <aside class="sidebar">
 				<figure>
-				  <img width="270" height="415" src="Assets/Images/JohnWick4.jpg" alt="John Wick Chapter 4">
+				  <img src="Assets/Images/JohnWick4.jpg" alt="John Wick Chapter 4">
 				</figure>
 			  </aside>
 			</div>
-			<div class="preview-trailer">
-			  <iframe width="740" height="415" src="https://www.youtube.com/embed/qEVUtrk8_B4?si=VgTwXaXVqyMLUit4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+			<div class="trailer">
+				<div class="iframe-wrapper">
+			  		<iframe src="https://www.youtube.com/embed/qEVUtrk8_B4?si=VgTwXaXVqyMLUit4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+				</div>
 			</div>
 		</section>
 		
-		<section class="container2">
-			<div class="genre-container">
-				<span class="genre-bubble">Action</span>
-				<span class="genre-bubble">Crime</span>
-				<span class="genre-bubble">Drama</span>
-			</div>
+		<div class="genre-container">
+			<span class="genre-bubble">Action</span>
+			<span class="genre-bubble">Crime</span>
+			<span class="genre-bubble">Drama</span>
+		</div>
 			   
-			<article class="main">
-				<h3>John Wick: Chapter 4</h3>
-				<p>John Wick (Keanu Reeves) menemukan jalan untuk mengalahkan The High Table. Tapi sebelum dia bisa mendapatkan kebebasannya, Wick harus berhadapan dengan musuh baru dengan aliansi yang kuat di seluruh dunia! Memaksanya mengubah teman lama menjadi musuh.</p>
-				<p>Tanggal rilis: 21 Maret 2023 (Indonesia)</p>
-				<p>Sutradara: Chad Stahelski</p>
-				<p>Box office: 440,1 juta USD</p>
-				<p>Anggaran: 100 juta USD</p>
-				<p>Distributor: Lionsgate</p>
-			</article>
+		<article class="deskripsi">
+			<p>John Wick (Keanu Reeves) menemukan jalan untuk mengalahkan The High Table. Tapi sebelum dia bisa mendapatkan kebebasannya, Wick harus berhadapan dengan musuh baru dengan aliansi yang kuat di seluruh dunia! Memaksanya mengubah teman lama menjadi musuh.</p>
+			<p>Tanggal rilis: 21 Maret 2023 (Indonesia)</p>
+			<p>Sutradara: Chad Stahelski</p>
+			<p>Box office: 440,1 juta USD</p>
+			<p>Anggaran: 100 juta USD</p>
+			<p>Distributor: Lionsgate</p>
+		</article>
+
+		<section class="additional-info-container">
+			<h2 class="section-title">More About John Wick: Chapter 4</h2>
+			<div class="info-grid">
+				<div class="info-item">
+					<h3>Cast</h3>
+					<ul>
+						<li>Keanu Reeves as John Wick</li>
+						<li>Halle Berry as Sofia</li>
+						<li>Ian McShane as Winston</li>
+					</ul>
+				</div>
+				<div class="info-item">
+					<h3>Crew</h3>
+					<ul>
+						<li>Director: Chad Stahelski</li>
+						<li>Producer: Lionsgate</li>
+						<li>Screenplay: Derek Kolstad</li>
+					</ul>
+				</div>
+				<div class="info-item">
+					<h3>Synopsis</h3>
+					<p>John Wick (Keanu Reeves) menemukan jalan untuk mengalahkan The High Table. Tapi sebelum dia bisa mendapatkan kebebasannya, Wick harus berhadapan dengan musuh baru dengan aliansi yang kuat di seluruh dunia! Memaksanya mengubah teman lama menjadi musuh.</p>
+					<p>Tanggal rilis: 21 Maret 2023 (Indonesia)</p>
+					<p>Sutradara: Chad Stahelski</p>
+					<p>Box office: 440,1 juta USD</p>
+					<p>Anggaran: 100 juta USD</p>
+					<p>Distributor: Lionsgate</p>
+				</div>
+			</div>
+		</section>
+
+		<section class="trending-slider-container">
+			<h2 class="section-title">Trending Now</h2>
+			<div class="slider-container">
+				<div class="slide">
+					<img src="Assets/Images/film1.jpeg" alt="Preview 1">
+				</div>
+				<div class="slide">
+					<img src="Assets/Images/film2.jpeg" alt="Preview 2">
+				</div>
+				<div class="slide">
+					<img src="Assets/Images/film3.jpeg" alt="Preview 3">
+				</div>
+				<div class="slide">
+					<img src="Assets/Images/film4.jpeg" alt="Preview 4">
+				</div>
+				<div class="slide">
+					<img src="Assets/Images/film1.jpeg" alt="Preview 5">
+				</div>
+				<div class="slide">
+					<img src="Assets/Images/film2.jpeg" alt="Preview 6">
+				</div>
+				<div class="slide">
+					<img src="Assets/Images/film3.jpeg" alt="Preview 7">
+				</div>
+				<div class="slide">
+					<img src="Assets/Images/film4.jpeg" alt="Preview 8">
+				</div>
+			</div>
 		</section>
 	</main>
 
